@@ -1,0 +1,8 @@
+spring:
+  jpa:
+    hibernate.ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+  datasource:
+    url: jdbc:mariadb://${DB_HOST}:${DB_PORT}/${DB_NAME}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
