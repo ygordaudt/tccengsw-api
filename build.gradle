@@ -6,7 +6,7 @@ plugins {
 
 group = 'br.com.tccengsw_noplastic_api'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '18'
+sourceCompatibility = '17'
 
 configurations {
 	compileOnly {
@@ -15,6 +15,7 @@ configurations {
 }
 
 jar {
+	enabled = false
 	manifest {
 		attributes 'Main-Class': 'br.com.tccengsw_noplastic_api.TccEngSwApiApplication'
 	}
