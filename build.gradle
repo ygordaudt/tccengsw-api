@@ -4,13 +4,19 @@ plugins {
 	id 'java'
 }
 
-group = 'br.com.tccengsw_noplastic'
+group = 'br.com.tccengsw_noplastic_api'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
 
 configurations {
 	compileOnly {
 		extendsFrom annotationProcessor
+	}
+}
+
+jar {
+	manifest {
+		attributes 'Main-Class': 'br.com.tccengsw_noplastic_api.TccEngSwApiApplication'
 	}
 }
 
@@ -25,7 +31,6 @@ dependencies {
 	implementation 'org.springdoc:springdoc-openapi-ui:1.6.11'
 	implementation 'org.apache.commons:commons-collections4:4.4'
 	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign:3.1.4'
-
 
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
