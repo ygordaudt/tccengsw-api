@@ -6,7 +6,7 @@ plugins {
 
 group = 'br.com.tccengsw_noplastic_api'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '17'
+sourceCompatibility = '18'
 
 configurations {
 	compileOnly {
