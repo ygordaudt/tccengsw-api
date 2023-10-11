@@ -13,8 +13,8 @@ public class ClienteService {
     private final ClienteRepository repository;
 
     public Cliente sincronizar(String loginCliente) {
-        repository.findByLogin(loginCliente).ifPresent(repository::delete);
-        return repository.save(ClienteBuilder.newDefault(loginCliente));
+        return repository.findByLogin(loginCliente)
+                .orElse(repository.save(ClienteBuilder.newDefault(loginCliente)));
     }
 
 }
