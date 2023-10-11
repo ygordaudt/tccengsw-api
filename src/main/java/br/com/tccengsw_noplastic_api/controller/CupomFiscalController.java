@@ -1,6 +1,5 @@
 package br.com.tccengsw_noplastic_api.controller;
 
-import br.com.tccengsw_noplastic_api.builder.CupomFiscalBuilder;
 import br.com.tccengsw_noplastic_api.dto.CupomFiscalDTO;
 import br.com.tccengsw_noplastic_api.service.CupomFiscalService;
 import lombok.RequiredArgsConstructor;
@@ -35,7 +34,7 @@ public class CupomFiscalController {
 
     @GetMapping(value = "/disponivel", produces = "application/json")
     public ResponseEntity<List<String>> listarDisponiveis() {
-        return ResponseEntity.ok(CupomFiscalBuilder.fromDisponiveisSerpro());
+        return ResponseEntity.ok(service.buscarCuponsDisponiveis());
     }
 
     @PostMapping("/reset")
