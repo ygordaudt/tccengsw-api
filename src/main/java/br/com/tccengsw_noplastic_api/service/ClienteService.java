@@ -14,7 +14,7 @@ public class ClienteService {
 
     public Cliente sincronizar(String loginCliente) {
         return repository.findByLogin(loginCliente)
-                .orElse(repository.save(ClienteBuilder.newDefault(loginCliente)));
+                .orElseGet(() -> repository.save(ClienteBuilder.newDefault(loginCliente)));
     }
 
 }

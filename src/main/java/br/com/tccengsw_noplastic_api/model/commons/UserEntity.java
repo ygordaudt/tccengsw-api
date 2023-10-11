@@ -18,7 +18,7 @@ import static br.com.tccengsw_noplastic_api.utils.ConstantUtils.DEFAULT_USER;
 @Setter
 @SuperBuilder
 @NoArgsConstructor
-@Entity
+@Entity(name = "usuario")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class UserEntity extends NamedEntity {
 
