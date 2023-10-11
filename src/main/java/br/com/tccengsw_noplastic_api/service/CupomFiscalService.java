@@ -38,7 +38,6 @@ public class CupomFiscalService {
     }
 
     public CupomFiscalDTO sincronizar(String codigo, String loginCliente) {
-        repository.findByCodigo(codigo).ifPresent(repository::delete);
         return mapUtils.mapObject(
                 repository.save(factory.fabricate(codigo, loginCliente)),
                 CupomFiscalDTO.class);
