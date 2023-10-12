@@ -24,7 +24,7 @@ public class ItemProduto extends NamedEntity {
     @Column
     private double valorUnitario;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn
     private TipoUnidadeMedida tipoUnidadeMedida;
 

@@ -26,7 +26,7 @@ public class CupomFiscal extends BaseEntity {
     @Builder.Default
     private List<ItemProduto> itensProduto = new ArrayList<>();
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn
     private Parceiro parceiro;
 
