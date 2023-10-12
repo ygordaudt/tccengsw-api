@@ -32,7 +32,7 @@ public class SolicitacaoCashbackController {
         return ResponseEntity.ok(service.buscar(id));
     }
 
-    @PostMapping("/cupom/{codigoCupomFiscal}")
+    @PostMapping("/cupom-fiscal/{codigoCupomFiscal}")
     public ResponseEntity<SolicitacaoCashbackDTO> criar(
             @PathVariable @NotNull String codigoCupomFiscal,
             @RequestHeader @NotNull String loginCliente) {
