@@ -22,7 +22,7 @@ public class SolicitacaoCashback extends BaseEntity {
     @JoinColumn
     private CupomFiscal cupomFiscal;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn
     private Cliente cliente;
 
