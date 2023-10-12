@@ -40,6 +40,13 @@ public class SolicitacaoCashbackController {
         return ResponseEntity.ok(service.salvar(codigoCupomFiscal, loginCliente));
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> excluir(
+            @NotNull @PathVariable Long id) {
+        service.excluir(id);
+        return ResponseEntity.noContent().build();
+    }
+
     @PostMapping("/reset")
     public ResponseEntity<Void> reset() {
         service.reset();

@@ -41,6 +41,10 @@ public class SolicitacaoCashbackService {
                 SolicitacaoCashbackDTO.class);
     }
 
+    public void excluir(Long id) {
+        repository.deleteById(id);
+    }
+
     public void reset() {
         repository.deleteAll();
     }
