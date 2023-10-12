@@ -6,8 +6,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
-import javax.persistence.*;
-import java.math.BigDecimal;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Getter
 @Setter
@@ -17,10 +19,10 @@ import java.math.BigDecimal;
 public class OrdemPagamentoCashback extends BaseEntity {
 
     @Column
-    private BigDecimal codigoPagamento;
+    private Long codigoPagamento;
 
     @Column(precision = 2, nullable = false)
-    private BigDecimal valor;
+    private double valor;
 
     @ManyToOne
     @JoinColumn

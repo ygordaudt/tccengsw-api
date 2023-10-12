@@ -8,8 +8,6 @@ import br.com.tccengsw_noplastic_api.service.ClienteService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.util.List;
 
 @Service
@@ -29,8 +27,7 @@ public class SolicitacaoCashbackFactory {
                         AtividadeHistoricoSolicitacaoCashbackBuilder.buildNovaSolicitacao()))
                 .ordemPagamentoCashback(
                         OrdemPagamentoCashback.builder()
-                                .valor(BigDecimal.valueOf(cupomFiscal.getQuantidadeTotal() * COEFICIENTE_CASHBACK)
-                                        .setScale(2, RoundingMode.HALF_EVEN))
+                                .valor(cupomFiscal.getQuantidadeTotal() * COEFICIENTE_CASHBACK)
                                 .build())
                 .build();
     }
