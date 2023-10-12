@@ -32,9 +32,9 @@ public class SolicitacaoCashbackController {
         return ResponseEntity.ok(service.buscar(id));
     }
 
-    @PostMapping
+    @PostMapping("/cupom/{codigoCupomFiscal}")
     public ResponseEntity<SolicitacaoCashbackDTO> criar(
-            @RequestBody @NotNull String codigoCupomFiscal,
+            @PathVariable @NotNull String codigoCupomFiscal,
             @RequestHeader @NotNull String loginCliente) {
         cupomJaCadastradoValidator.validate(codigoCupomFiscal);
         return ResponseEntity.ok(service.salvar(codigoCupomFiscal, loginCliente));
