@@ -8,23 +8,21 @@ import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
 import javax.persistence.MappedSuperclass;
-import java.util.List;
+import java.math.BigDecimal;
 
 @Getter
 @Setter
 @SuperBuilder
 @NoArgsConstructor
 @MappedSuperclass
-public class CupomFiscalDTO extends BaseDTO {
+public class OrdemPagamentoCashbackDTO extends BaseDTO {
 
-    private String codigo;
-    private List<ItemProdutoDTO> itensProduto;
-    private ParceiroDTO parceiro;
-    private double valorTotal;
-    private double quantidadeTotal;
+    private BigDecimal codigoPagamento;
+    private BigDecimal valor;
+    private ContaBancariaDTO contaOrigem;
+    private ContaBancariaDTO contaDestino;
 
-    public String getValorTotalFormatado() {
-        return CurrencyUtils.converterParaMonetario(valorTotal);
+    public String getValorFormatado() {
+        return CurrencyUtils.converterParaMonetario(valor.doubleValue());
     }
-
 }

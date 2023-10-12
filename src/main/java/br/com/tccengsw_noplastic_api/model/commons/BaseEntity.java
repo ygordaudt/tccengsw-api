@@ -1,6 +1,7 @@
 package br.com.tccengsw_noplastic_api.model.commons;
 
 import br.com.tccengsw_noplastic_api.converter.BooleanConverter;
+import br.com.tccengsw_noplastic_api.utils.DateUtils;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,7 +27,7 @@ public abstract class BaseEntity implements Serializable {
 
     @Builder.Default
     @Column(nullable = false)
-    private LocalDateTime dataAtualizacao = LocalDateTime.now();
+    private LocalDateTime dataAtualizacao = DateUtils.getDateNow();
 
     @Builder.Default
     @Convert(converter = BooleanConverter.class)

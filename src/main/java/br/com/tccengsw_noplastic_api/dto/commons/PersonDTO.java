@@ -12,7 +12,7 @@ import javax.persistence.MappedSuperclass;
 @SuperBuilder
 @NoArgsConstructor
 @MappedSuperclass
-public class PersonDTO {
+public class PersonDTO extends NamedDTO {
 
     private String telefone;
     private String email;

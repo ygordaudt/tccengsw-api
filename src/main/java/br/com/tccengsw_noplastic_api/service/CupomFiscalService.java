@@ -37,9 +37,9 @@ public class CupomFiscalService {
                 .orElseThrow(() -> new NotFoundException("Cupom fiscal não encontrado"));
     }
 
-    public CupomFiscalDTO sincronizar(String codigo, String loginCliente) {
+    public CupomFiscalDTO sincronizar(String codigo) {
         return mapUtils.mapObject(
-                repository.save(factory.fabricate(codigo, loginCliente)),
+                repository.save(factory.fabricate(codigo)),
                 CupomFiscalDTO.class);
     }
 

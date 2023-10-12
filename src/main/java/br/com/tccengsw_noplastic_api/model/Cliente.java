@@ -15,7 +15,7 @@ import javax.persistence.*;
 @Entity
 public class Cliente extends PhysicalPersonEntity {
 
-    @OneToOne(cascade = CascadeType.PERSIST)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn
     private ContaBancaria contaBancaria;
 

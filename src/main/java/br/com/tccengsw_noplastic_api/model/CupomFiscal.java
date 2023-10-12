@@ -26,20 +26,16 @@ public class CupomFiscal extends BaseEntity {
     @Builder.Default
     private List<ItemProduto> itensProduto = new ArrayList<>();
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn
     private Parceiro parceiro;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn
-    private Cliente cliente;
+    public double getValorTotal() {
+        return itensProduto.stream().mapToDouble(ItemProduto::getValorUnitario).sum();
+    }
 
-    @Column
-    @Builder.Default
-    private Double valorTotal = 0.0;
-
-    @Column
-    @Builder.Default
-    private Double quantidadeTotal = 0.0;
+    public double getQuantidadeTotal() {
+        return itensProduto.stream().mapToDouble(ItemProduto::getQuantidade).sum();
+    }
 
 }

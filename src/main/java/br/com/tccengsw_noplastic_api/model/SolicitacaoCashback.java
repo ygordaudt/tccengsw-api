@@ -18,19 +18,20 @@ import java.util.List;
 @Entity
 public class SolicitacaoCashback extends BaseEntity {
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn
     private CupomFiscal cupomFiscal;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn
     private Cliente cliente;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn
     private OrdemPagamentoCashback ordemPagamentoCashback;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    @JoinColumn(name = "solicitacao_cashback_id")
     @Builder.Default
     private List<AtividadeHistoricoSolicitacaoCashback> atividadesHistorico = new ArrayList<>();
 

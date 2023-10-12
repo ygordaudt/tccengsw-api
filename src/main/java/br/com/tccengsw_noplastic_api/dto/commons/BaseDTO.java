@@ -1,5 +1,6 @@
 package br.com.tccengsw_noplastic_api.dto.commons;
 
+import br.com.tccengsw_noplastic_api.utils.DateUtils;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -19,4 +20,7 @@ public class BaseDTO {
     private LocalDateTime dataAtualizacao;
     private Boolean excluido;
 
+    public String getDataHoraAtualizacaoFormatado() {
+        return DateUtils.toString(dataAtualizacao);
+    }
 }
