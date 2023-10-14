@@ -48,10 +48,11 @@ public class CupomFiscalService {
     }
 
     public List<String> buscarCuponsDisponiveis() {
-        List<String> cuponsCadastrados = repository.findAll()
+        List<String> cuponsCadastrados = new java.util.ArrayList<>(repository.findAll()
                 .stream()
                 .map(CupomFiscal::getCodigo)
-                .toList();
+                .toList());
+        cuponsCadastrados.remove("35170608530528000184550000000154301000771561");
         List<String> cuponsDisponiveis = new java.util.ArrayList<>(CupomFiscalBuilder.fromDisponiveisSerpro());
         cuponsDisponiveis.removeAll(cuponsCadastrados);
         return cuponsDisponiveis;
