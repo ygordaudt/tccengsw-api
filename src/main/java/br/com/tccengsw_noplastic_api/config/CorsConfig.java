@@ -14,17 +14,15 @@ public class CorsConfig {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
 
-        // Allow requests from specific origins
-        config.addAllowedOrigin("*");
-
-        // You can customize other CORS settings as needed
-        config.addAllowedHeader("*");
-        config.addAllowedMethod("GET");
-        config.addAllowedMethod("POST");
+        // Permitir qualquer origem
         config.setAllowCredentials(true);
+        config.addAllowedOriginPattern("*");
+
+        // Você pode personalizar outros cabeçalhos e métodos permitidos aqui, se necessário
+        config.addAllowedHeader("*");
+        config.addAllowedMethod("*");
 
         source.registerCorsConfiguration("/**", config);
-
         return new CorsFilter(source);
     }
 }
