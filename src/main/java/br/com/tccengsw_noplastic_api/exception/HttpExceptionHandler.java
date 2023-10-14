@@ -1,5 +1,6 @@
 package br.com.tccengsw_noplastic_api.exception;
 
+import br.com.tccengsw_noplastic_api.client.serpro.exception.SerproClientException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -34,5 +35,10 @@ public class HttpExceptionHandler {
     @ExceptionHandler(Exception.class)
     public ResponseEntity<String> handleGenericException(Exception ex) {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ex.getMessage());
+    }
+
+    @ExceptionHandler(SerproClientException.class)
+    public ResponseEntity<String> handleSerproClientException(SerproClientException ex) {
+        return ResponseEntity.status(HttpStatus.valueOf(ex.getStatus())).body(ex.getMessage());
     }
 }
