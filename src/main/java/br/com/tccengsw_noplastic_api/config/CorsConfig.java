@@ -15,7 +15,7 @@ public class CorsConfig {
         CorsConfiguration config = new CorsConfiguration();
 
         // Allow requests from specific origins
-        config.addAllowedOrigin("https://ygordaudt.github.io");
+        config.addAllowedOrigin("*");
 
         // You can customize other CORS settings as needed
         config.addAllowedHeader("*");
