@@ -3,6 +3,7 @@ package br.com.tccengsw_noplastic_api.controller;
 import br.com.tccengsw_noplastic_api.dto.SolicitacaoCashbackDTO;
 import br.com.tccengsw_noplastic_api.service.SolicitacaoCashbackService;
 import br.com.tccengsw_noplastic_api.validator.CupomJaCadastradoValidator;
+import br.com.tccengsw_noplastic_api.validator.SolicitacaoCashbackJaConcluidaValidator;
 import lombok.RequiredArgsConstructor;
 import org.springdoc.api.annotations.ParameterObject;
 import org.springframework.data.domain.Page;
@@ -19,6 +20,7 @@ public class SolicitacaoCashbackController {
 
     private final SolicitacaoCashbackService service;
     private final CupomJaCadastradoValidator cupomJaCadastradoValidator;
+    private final SolicitacaoCashbackJaConcluidaValidator solicitacaoCashbackJaConcluidaValidator;
 
     @GetMapping
     public ResponseEntity<Page<SolicitacaoCashbackDTO>> listar(
@@ -43,6 +45,7 @@ public class SolicitacaoCashbackController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> excluir(
             @NotNull @PathVariable Long id) {
+        solicitacaoCashbackJaConcluidaValidator.validate(id);
         service.excluir(id);
         return ResponseEntity.noContent().build();
     }
